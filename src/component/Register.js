@@ -62,7 +62,7 @@ function Register() {
             formData.append('password',user.password)
             setIsLoading(true)
             setPreloader(true)
-            axios.post("http://localhost:8000/serviceManRegister",formData).then((res)=>{
+            axios.post("https://rneservices.onrender.com/serviceManRegister",formData).then((res)=>{
                 setUser({...user,name:"",userName:"",email:"",skill:"",image:"",text:"",password:""})
                 
                 alert("Registration successful")
@@ -114,15 +114,16 @@ function Register() {
             <label htmlFor="skill">Skill</label>
             <select value={user.skill} onChange={onChange} name="skill" id="skill" className='form-control' >
             <option >Select skill</option>
-            <option value="webDeveloper">Event Planner</option>
-            <option value="carpenter">Car painter</option>
-            <option value="painter">Painter</option>
-            <option value="electrician">Electician</option>
-            <option value="cook">Cook</option>
-            <option value="rajMistri">Raj-mistri</option>
-            <option value="carDriver">Caterers</option>
-            <option value="homeTutor">Home tutor</option>
-            <option value="homeTutor">Plumber</option>
+            <option value="Event Planner">Event Planner</option>
+            <option value="Carpenter">Carpenter</option>
+            <option value="Painter">Painter</option>
+            <option value="Electrician">Electician</option>
+            <option value="Cook">Cook</option>
+            <option value="RajMistri">Raj-mistri</option>
+            <option value="CarDriver">Caterers</option>
+            <option value="HomeTutor">Home tutor</option>
+            <option value="Plumber">Plumber</option>
+            <option value="Web-Developer">Web Developer</option>
             </select>
             {/* <input type="text" className='form-control' name="skill" id="skill" value={user.skill} onChange={onChange} /> */}
         </div>

@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-
+import LoadingSpinner from './LoadingSpinner'
 
 
 import "../App.css"
@@ -11,8 +11,8 @@ const axios=require('axios')
 axios.defaults.withCredentials = true
 
 function UserLogin() {
+    const [isLoading, setIsLoading] = useState(false);
     const navigate=useNavigate()
-
  const [user,setUser]=useState({
    
     userName:"",
@@ -38,8 +38,9 @@ function UserLogin() {
         else{
 
             const {userName,password}=user
-            axios.post("http://localhost:8000/userLogin",{userName,password}).then((res)=>{
-              
+            setIsLoading(true)
+            axios.post("https://rneservices.onrender.com/userLogin",{userName,password}).then((res)=>{
+                setIsLoading(false)
                if(res.data.login===true){
                alert("Login successful")
                navigate("/find")
@@ -54,7 +55,7 @@ function UserLogin() {
                  console.log(err)
               })
 
-      
+           
 
         }
 
@@ -75,7 +76,7 @@ function UserLogin() {
   return (
     <>
     <div className="login-container col-lg-12">
-
+    {isLoading &&<LoadingSpinner/>}
 
      <h3 className='user-login'>User login</h3>
     <div className="col-lg-4 register login">

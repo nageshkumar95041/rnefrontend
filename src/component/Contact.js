@@ -4,12 +4,13 @@ import { useState } from 'react'
 import img1 from "../image/pexels-caio-56759.jpg"
 import img2 from "../image/pexels-gustavo-fring-4254165.jpg"
 import img3 from "../image/pexels-total-shape-2383010.jpg"
+import LoadingSpinner from './LoadingSpinner'
 import "../App.css"
 const axios=require('axios')
 
 function Contact() {
 
-    const [preloader,setPreloader]=useState(false)
+    const [isLoading,setIsLoading]=useState(false)
  const [user,setUser]=useState({
     name:"",
     email:"",
@@ -59,10 +60,10 @@ function Contact() {
             //   }).catch((err)=>{
             //      console.log(err)
             //   })
-
-              axios.post("http://localhost:8000/contactmessage",{name:user.name,email:user.email,userName:user.userName}).then((res)=>{
+               setIsLoading(true)
+              axios.post("https://rneservices.onrender.com/contactmessage",{name:user.name,email:user.email,userName:user.userName}).then((res)=>{
                 setUser({...user,name:"",email:"",userName:""})
-                setPreloader(true)
+                setIsLoading(false)
                 if(res.data.type){
                  alert(`data submitted successfully ! we will contact you shortly.`)
                 }
@@ -85,8 +86,8 @@ function Contact() {
     <>
 
     
-    <div className="contact-container">
-
+    <div className="register-container">
+    {isLoading &&<LoadingSpinner/>}
     <div className="col-lg-4 register contact1">
     <h3 className='text-center'>Contact Us</h3>
     <form action='' onSubmit={submitHandler}>
@@ -110,41 +111,7 @@ function Contact() {
         </div>
     </form>
 </div>
- <div className=" col-lg-12 footer">
-           <div className="col-lg-2 ">
-            
-            <i class="fas fa-briefcase event-manager-icon"></i>
-            <p>123 job Offers</p>
-           </div>
-           <div className="col-lg-2 ">
-            <span className='glyphicon glyphicon-headphone'></span>
-            <i class="fas fa-bolt electrician-icon"></i>
-            <p>Electrician</p>
-            <p>123 job Offers</p>
-           </div>
-           <div className="col-lg-2 ">
-            <i class="fas fa-wrench plumber-icon"></i>
-            <p>123 job Offers</p>
-           </div>
-           <div className="col-lg-2 ">
-           <i class="fas fa-tools carpenter-icon"></i>
-            <p>Carpenter</p>
-            <p>123 job Offers</p>
-           </div>
-           <div className="col-lg-2 ">
-           <i class="fas fa-utensils cook-icon"></i>
-            <p>Cook</p>
-            <p>123 job Offers</p>
-           </div>
-           <div className="col-lg-2 ">
-           
-          <i class="fas fa-paint-roller painter-icon"></i>
-            <p>Painter</p>
-            <p>123 job Offers</p>
-           </div>
-           
-          
-        </div>
+
     </div>
 </>
   )

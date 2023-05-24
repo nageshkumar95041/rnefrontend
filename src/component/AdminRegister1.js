@@ -3,7 +3,7 @@ import axios  from 'axios'
 import { useState } from 'react'
 import LoadingSpinner from './LoadingSpinner'
 
-export default function UserSignup() {
+export default function AdminRegister() {
     const [preloader,setPreloader]=useState(false)
     const [isLoading, setIsLoading] = useState(false);
     const [user,setUser]=useState({
@@ -46,7 +46,7 @@ export default function UserSignup() {
                
                
                 setIsLoading(true)
-            axios.post("https://rneservices.onrender.com/userRegistration",{name:user.name,userName:user.userName,email:user.userName,password:user.password}).then((res)=>{
+            axios.post("https://rneservices.onrender.com/adminRegistration",{name:user.name,userName:user.userName,email:user.userName,password:user.password}).then((res)=>{
                    setUser({...user,name:"",userName:"",email:"",password:"",confirmPassword:""})
                    setIsLoading(false)
                    if(res.data.type){
@@ -76,7 +76,7 @@ export default function UserSignup() {
        <div className="col-lg-4 register contact1">
        
        <form action='' onSubmit={submitHandler}>
-       <h4 className='text-center'>User Signup</h4>
+       <h4 className='text-center'>Admin Signup</h4>
            <div className="form-group">
                <label htmlFor="name">Name</label>
                <input type="text"  autoComplete='off' className='form-control' name="name" id="name" value={user.name} onChange={onChange} />
@@ -144,5 +144,3 @@ export default function UserSignup() {
    </>
      )
    }
-
-

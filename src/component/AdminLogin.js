@@ -9,7 +9,7 @@ const axios=require('axios')
 
 axios.defaults.withCredentials = true
 
-function Login() {
+function AdminLogin() {
     const [isLoading, setIsLoading] = useState(false);
     const navigate=useNavigate()
 
@@ -39,12 +39,12 @@ function Login() {
 
             const {userName,password}=user
             setIsLoading(true)
-            axios.post("https://rneservices.onrender.com/login",{userName,password}).then((res)=>{
+            axios.post("https://rneservices.onrender.com/adminLogin",{userName,password}).then((res)=>{
                 setIsLoading(false)
               
                if(res.data.login===true){
                alert("Login successful")
-               navigate("/find")
+               navigate("/adminPage")
               
                
                }
@@ -133,4 +133,4 @@ function Login() {
   )
 }
 
-export default Login
+export default AdminLogin

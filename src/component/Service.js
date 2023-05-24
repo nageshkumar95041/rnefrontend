@@ -29,14 +29,16 @@ plumbing, electrical work, home repairs, cleaning services, and more.
 
  </p>
      
-         
+         <div className="card-container">
+          
+       
           <div className="col-lg-2 card-category">
           <i class="fas fa-wrench plumber-icon1"></i>
             <div className="descrp">
               <h3 className='text-center'>Plumber</h3>
              <p >"Efficient plumbing services for your local community. Our skilled plumbers provide prompt and reliable solutions for all your plumbing needs. Trust us to handle installations, repairs, and maintenance with expertise and professionalism."</p>
-             <button className="btn btn-primary view" onClick={view}>View Service</button>
             </div>
+             <button className="btn btn-primary view" onClick={view}>View Service</button>
           </div>
           <div className="col-lg-2 card-category">
           <span className='glyphicon glyphicon-camera service-icon'></span>
@@ -119,6 +121,8 @@ plumbing, electrical work, home repairs, cleaning services, and more.
              <p>"Indulge in a culinary extravaganza with our local caterers. From exquisite platters to delightful desserts, our talented chefs craft delectable menus to tantalize your taste buds. Trust us to deliver exceptional flavors, impeccable presentation, and unparalleled service, ensuring an unforgettable dining experience."</p>
              <button className="btn btn-primary view"  onClick={view}>View Service</button>
             </div>
+          </div>
+
           </div>
          
           

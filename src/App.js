@@ -17,6 +17,11 @@ import UserSignup from './component/UserSignup';
 import UserLogin from './component/UserLogin';
 import LoadingSpinner from './component/LoadingSpinner';
 import Navbar1 from './component/Navbar1';
+import AdminLogin from './component/AdminLogin';
+import AdminRegister from './component/AdminRegister1';
+import Dashboardauth from './component/Dashboardauth';
+
+
 
 
 
@@ -39,9 +44,12 @@ function App() {
           <Route path='/login' element={<Login/>}/>
           <Route path='/find' element={<DisplayServiceMan/>}/>
           <Route path='/find/:id' element={<Profile/>}/>
-          <Route path='/adminPage' element={<Dashboard/>}/>
+          {/* <Route path='/adminPage' element={<Dashboard/>}/> */}
+          <Route path='/adminPage' element={<Dashboardauth/>}/>
           <Route path='/userSignup' element={<UserSignup/>}/>
           <Route path='/userLogin' element={<UserLogin/>}/>
+          <Route path='/adminLogin' element={<AdminLogin/>}/>
+          <Route path='/adminRegister' element={<AdminRegister/>}/>
           
 
         </Routes>

@@ -14,48 +14,54 @@ export default function Dashboard() {
    
    const [count,setCount]=useState("")
    const params=useParams();
+   
+   const navigate=useNavigate()
+     
 
-   const getData=()=>{
-    axios.get("http://localhost:8000/serviceManRegister").then((res)=>{
-      setdata(res.data);
-    })
-   }
-   const getData1=()=>{
-    axios.get("http://localhost:8000/userRegistered").then((res)=>{
-      setdata1(res.data);
-    })
-   }
-   const getmess=()=>{
-    axios.get("http://localhost:8000/contactMessage").then((res)=>{
-      setmess(res.data);
-    })
-   }
-   const getDatauser=()=>{
-    axios.get("http://localhost:8000/usercount").then((res)=>{
-      setuser(res.data);
-    })
-   }
-   const getCount=()=>{
-    axios.get("http://localhost:8000/serviceManCount").then((res)=>{
-      setCount(res.data);
+      const getData=()=>{
+        axios.get("https://rneservices.onrender.com/serviceManRegister").then((res)=>{
+          setdata(res.data);
+        })
+       }
+       const getData1=()=>{
+        axios.get("https://rneservices.onrender.com/userRegistered").then((res)=>{
+          setdata1(res.data);
+        })
+       }
+       const getmess=()=>{
+        axios.get("https://rneservices.onrender.com/contactMessage").then((res)=>{
+          setmess(res.data);
+        })
+       }
+       const getDatauser=()=>{
+        axios.get("https://rneservices.onrender.com/usercount").then((res)=>{
+          setuser(res.data);
+        })
+       }
+       const getCount=()=>{
+        axios.get("https://rneservices.onrender.com/serviceManCount").then((res)=>{
+          setCount(res.data);
+          
+        })
+       }
+    
+    
+    
+    const deleteHandle=(data)=>{
+     console.log(data);
+      axios.delete(`https://rneservices.onrender.com/serviceManRegister/${data}`).then(res=>console.log("user deleted successfully")).catch(error=>console.log(error));
+      window.location.reload()
+      alert("Serviceman deleted successfully");
       
-    })
-   }
-
-   const deleteHandle=(data)=>{
-    console.log(data);
-     axios.delete(`http://localhost:8000/serviceManRegister/${data}`).then(res=>console.log("user deleted successfully")).catch(error=>console.log(error));
-     window.location.reload()
-     alert("Serviceman deleted successfully");
-     
-   }
-   const deleteuserHandle=(data)=>{
-    console.log(data);
-     axios.delete(`http://localhost:8000/userRegistered/${data}`).then(res=>console.log("user deleted successfully")).catch(error=>console.log(error));
-     window.location.reload()
-     alert("user deleted successfully");
-     
-   }
+    }
+    const deleteuserHandle=(data)=>{
+     console.log(data);
+      axios.delete(`https://rneservices.onrender.com/userRegistered/${data}`).then(res=>console.log("user deleted successfully")).catch(error=>console.log(error));
+      window.location.reload()
+      alert("user deleted successfully");
+      
+    }
+  
 
    
  
@@ -131,6 +137,7 @@ export default function Dashboard() {
           </div>
           <div className="col-lg-6">
            <h2>Message</h2>
+          
            {
             mess.map((res)=>{
               return (
@@ -143,6 +150,7 @@ export default function Dashboard() {
               )
             })
            }
+          
                
           </div>
           <div className="col-lg-3 ">

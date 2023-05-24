@@ -14,7 +14,7 @@ function DisplayServiceMan() {
    if(service=="/"){
     window.location.reload()
    }
-    axios.get(`http://localhost:8000/serviceCategory/${service}`).then((res)=>{
+    axios.get(`https://rneservices.onrender.com/serviceCategory/${service}`).then((res)=>{
       setData(res.data)
       
        
@@ -32,7 +32,7 @@ function DisplayServiceMan() {
    
    const getData=()=>{
     setIsLoading(true)
-    axios.get("http://localhost:8000/serviceManRegister").then((res)=>{setData(res.data)
+    axios.get("https://rneservices.onrender.com/serviceManRegister").then((res)=>{setData(res.data)
   setIsLoading(false)})
    }
   useEffect(()=>{
@@ -57,14 +57,14 @@ function DisplayServiceMan() {
 
 <div className="col-lg-2 category">
 <h3>Filter by service</h3>
-    <button className='btn btn-info' onClick={()=>filterHandler("webDeveloper")}>Web Developer</button>
-    <button className='btn btn-info' onClick={()=>filterHandler("electrician")}>Electrician</button>
-    <button className='btn btn-primary' onClick={()=>filterHandler("doctor")}>Doctor</button>
-    <button className='btn btn-primary' onClick={()=>filterHandler("painter")} >Painter</button>
-    <button className='btn btn-primary' onClick={()=>filterHandler("carpenter")}>Carpenter</button>
-    <button className='btn btn-primary' onClick={()=>filterHandler("homeTutor")}>Home Tutor</button>
-    <button className='btn btn-primary' onClick={()=>filterHandler("plumber")}>Plumber</button>
-    <button className='btn btn-primary' onClick={()=>filterHandler("cook")}>Cook</button>
+    <button className='btn btn-info' onClick={()=>filterHandler("Web-Developer")}>Web Developer</button>
+    <button className='btn btn-info' onClick={()=>filterHandler("Electrician")}>Electrician</button>
+    <button className='btn btn-primary' onClick={()=>filterHandler("Event Planner")}>Event Planner</button>
+    <button className='btn btn-primary' onClick={()=>filterHandler("Painter")} >Painter</button>
+    <button className='btn btn-primary' onClick={()=>filterHandler("Carpenter")}>Carpenter</button>
+    <button className='btn btn-primary' onClick={()=>filterHandler("HomeTutor")}>Home Tutor</button>
+    <button className='btn btn-primary' onClick={()=>filterHandler("Plumber")}>Plumber</button>
+    <button className='btn btn-primary' onClick={()=>filterHandler("Cook")}>Cook</button>
     <button className='btn btn-primary' onClick={()=>filterHandler("/")}>All</button>
    
 
@@ -93,7 +93,7 @@ function DisplayServiceMan() {
        <i class="fab fa-facebook-f facebook-icon col-lg-2"></i>
        <i class="fab fa-twitter twitter-icon col-lg-2"></i>
        <i class="fab fa-instagram instagram-icon col-lg-2"></i>
-       <i className="fa fa-google col-lg-2 col-lg-2"></i>
+       <i className="fab fa-google fa-google google-icon col-lg-2"></i>
        <i class="fab fa-linkedin-in linkedin-icon col-lg-2"></i>
       </div>
       <hr/>
@@ -116,7 +116,7 @@ function DisplayServiceMan() {
      
      <div className="button">
 
-       <button className="view-profile" >View profile</button>
+      <button className="view-profile" ><Link  to={user._id}>View profile</Link></button> 
         <Link  className="hire-me" to={user._id}>Hire Me</Link>
         
 

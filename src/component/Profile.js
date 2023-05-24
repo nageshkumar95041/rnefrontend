@@ -22,10 +22,10 @@ function Profile() {
 //    }
  const profileDetail=()=>{
      
-      axios.get(`http://localhost:8000/serviceManRegister/${params.id}`).then((res)=>
+      axios.get(`https://rneservices.onrender.com/serviceManRegister/${params.id}`).then((res)=>
       {
          
-         if(res.data.auth==false){
+         if(res.data.auth===false){
             navigate("/userLogin")
           alert("please login first")
          }
@@ -56,7 +56,7 @@ function Profile() {
          alert("please enter your name and location")
       }
       else{
-         axios.post("http://localhost:8000/sendSmsToServiceMan",{message:message}).then((res)=>{
+         axios.post("https://rneservices.onrender.com/sendSmsToServiceMan",{message:message}).then((res)=>{
             if(res.data.message){
                alert("request sent to the serviceman")
    
